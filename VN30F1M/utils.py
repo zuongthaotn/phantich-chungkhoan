@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 import pandas as pd
 
-def get_tf5m_dataset():
+def get_tf5m_ohlvc_dataset():
     notebook_path = os.getcwd()
-    current_dir = Path(notebook_path).parent
-    csv_file = str(current_dir) + '/VN30F1M_5minutes.csv'
+    target_dir = Path(notebook_path).parent.parent
+    csv_file = str(target_dir) + '/vn-stock-data/VN30F1M/data_ohlcv/VN30F1M_5m.csv'
     is_file = os.path.isfile(csv_file)
     if is_file:
         dataset = pd.read_csv(csv_file, index_col='Date', parse_dates=True)
